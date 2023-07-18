@@ -3,10 +3,10 @@ import { ParentContext } from '../App'
 
 const EditItem = () => {
     const { itemData } = useContext(ParentContext)
-    const [user_table_id, setUser_table_id] = useState(parseInt(itemData.user_table_id));
+    const [user_table_id, setUser_table_id] = useState((itemData.user_table_id));
     const [Item_Name, setItem_Name] = useState(itemData.Item_Name);
     const [Description, setDescription] = useState(itemData.Description);
-    const [Quantity, setQuantity] = useState(parseInt(itemData.Quantity));
+    const [Quantity, setQuantity] = useState((itemData.Quantity));
 
     let link = window.location.href;
     let linkArr = link.split('/');
@@ -40,7 +40,7 @@ const EditItem = () => {
                         <input name="user"
                         type='text'
                         value={user_table_id} 
-                        onChange={(e) =>{if(e.target.value !== 0) setUser_table_id(e.target.value)}}/>
+                        onChange={(e) =>{if(e.target.value !== null) setUser_table_id(e.target.value)}}/>
                     </label><br/><br/>
                     <label className="labelHeaders">Item Name:
                         <input name="item"
@@ -58,7 +58,7 @@ const EditItem = () => {
                         <input name="quantity"
                         type='text'
                         value={Quantity} 
-                        onChange={(e) => {if(e.target.value !== 0) setQuantity(e.target.value)}}/>
+                        onChange={(e) => {if(e.target.value !== null) setQuantity(e.target.value)}}/>
                     </label><br/><br/>
                     <button className='submitButton'>Submit</button>
                 </form>
