@@ -17,6 +17,13 @@ app.get('/items', (req, res) => {
     .then(data => {res.json(data)})
 })
 
+app.get('/items/:id', (req, res) => {
+    knex('item_table')
+    .select('*')
+    .where({id: req.params.id})
+    .then(data => {res.json(data)})
+})
+
 app.post('/items', async (req, res) => {
     const body = req.body;
     try {
