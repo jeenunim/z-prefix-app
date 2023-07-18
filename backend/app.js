@@ -33,6 +33,25 @@ app.patch('/items/:id', (req, res) => {
         .then(function(data) {res.send(data)})
 })
 
+app.put('/items/:id', (req, res) => {
+    let itemId = req.params.id;
+    knex('item_table').where({id: itemId})
+    .update({user_table_id: req.body.user_table_id || null,
+        Item_Name: req.body.Item_Name || null, 
+        Description: req.body.Description || null,
+        Quantity: req.body.Quantity || null
+    })
+    .returning('*')
+    .then(function(data) {res.send(data)})
+})
+
+app.delete('/items/:id', (req, res) => {
+    knex('item_table').where({id: req.params.id}).del()
+    .then(function () {
+        res.json('successfully deleted')
+    })
+})
+
 app.get('/users', (req, res) => {
     knex('user_table')
     .select('*')
