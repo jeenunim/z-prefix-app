@@ -27,8 +27,8 @@ app.get('/items/:id', (req, res) => {
 app.post('/items', async (req, res) => {
     const body = req.body;
     try {
-        const weapon = await knex('item_table').insert(body)
-        res.status(201).send(weapon);
+        const item = await knex('item_table').insert(body)
+        res.status(201).send(item);
     } catch (error) {
         res.status(500).json({error});
     }
@@ -63,6 +63,16 @@ app.get('/users', (req, res) => {
     knex('user_table')
     .select('*')
     .then(data => {res.json(data)})
+})
+
+app.post('/users', async (req, res) => {
+    const body = req.body;
+    try {
+        const user = await knex('user_table').insert(body)
+        res.status(201).send(user);
+    } catch (error) {
+        res.status(500).json({error});
+    }
 })
 
 app.listen(port, () => {

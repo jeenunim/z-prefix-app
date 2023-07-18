@@ -28,6 +28,9 @@ const ItemDetails = () => {
             <div className="itemName">Item Name: {`${found.Item_Name}`}</div>
             <div className="itemDetails">Description: {`${found.Description}`}</div>
             <div className="itemQuantity">Quantity: {`${found.Quantity}`}</div>
+            <div>
+                <Link to={`/editItem/${found.id}`}><button>Edit</button></Link>
+            </div>
         </div>
     )
 
