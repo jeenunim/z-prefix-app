@@ -3,30 +3,45 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { ParentContext } from '../App'
 
 const ItemDetails = () => {
-    const { itemData } = useContext(ParentContext)
+    const { itemData, userData } = useContext(ParentContext)
+    let edit = null;
+    let remove = null;
 
     let link = window.location.href;
     let linkArr = link.split('/');
     let linkID = linkArr.pop() || linkArr.pop();
-    localStorage.setItem('id', linkID)
-    let ID = localStorage.getItem('id')
-    let found = itemData.find((e) => e.id == ID);
-    console.log(found)
 
-    useEffect(() => {
-    localStorage.setItem('Item_Name', found.Item_Name)
-    localStorage.setItem('Description', found.Description)
-    localStorage.setItem('Quantity', found.Quantity)
-},[])
+    localStorage.setItem('id', linkID)  
+
+    let item = itemData.find((e) => e.id == localStorage.getItem('id'))
     
+    localStorage.setItem('item', JSON.stringify(item))
+    console.log(localStorage.getItem('id'))
+    console.log(item)
+    console.log(localStorage.getItem('item'))
+    let items = JSON.parse(localStorage.getItem('item'))
+    console.log(items)
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch(`http://localhost:3001/items/${item.id}`,  { method: 'DELETE' })
+        .then(() => {alert('Item deleted successfully'); setTimeout(window.location.href = '/', 3000)})
+    }
+
+    let user = userData.map((e) => e.Username)
+    let username = localStorage.getItem('username')
+    if (user.includes(username)) {
+        edit = <Link to={`/editItem/${item.id}`}><button>Edit</button></Link>
+        remove = <form onSubmit={handleSubmit}><button >Remove</button></form>
+    }
     
     return (
         <div className="container">
-            <div className="itemName">Item Name: {`${localStorage.getItem('Item_Name')}`}</div>
-            <div className="itemDetails">Description: {`${localStorage.getItem('Description')}`}</div>
-            <div className="itemQuantity">Quantity: {`${localStorage.getItem('Quantity')}`}</div>
+            <div className="itemName">Item Name: {item.Item_Name}</div>
+            <div className="itemDetails">Description: {item.Description}</div>
+            <div className="itemQuantity">Quantity: {item.Quantity}</div>
             <div>
-                <Link to={`/editItem/${localStorage.getItem('id')}`}><button>Edit</button></Link>
+                {edit}{remove}
             </div>
         </div>
     )

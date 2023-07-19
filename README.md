@@ -18,3 +18,4 @@
 
 8. From there type "npx knex migrate:latest" and "npx knex seed:run" in that order. Our database should be populated with four tables now. You can verify this step by going back into the previous terminal we used to enter into the integrated terminal and type in "\dt"
 
+### Starting our servers

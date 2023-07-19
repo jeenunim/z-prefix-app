@@ -29,7 +29,7 @@ const EditItem = () => {
                 )
         };
         fetch(`http://localhost:3001/items/${id}`, requestOptions)
-        .then(() => {alert('Threat added successfully'); setTimeout(window.location.reload(), 3000)})
+        .then(() => {alert('Your edits have been saved!'); setTimeout(window.location.href = `/itemDetails/${id}`, 3000)})
     }
 
     return (

@@ -20,7 +20,7 @@ const AddItem = () => {
                 )
         };
         fetch('http://localhost:3001/items', requestOptions)
-        .then(() => {alert('Item added successfully'); setTimeout(window.location.reload(), 3000)})
+        .then(() => {alert('Item added successfully'); setTimeout(window.location.href = '/', 3000)})
     }
 
     return (
