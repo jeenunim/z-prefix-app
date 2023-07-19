@@ -10,17 +10,9 @@ const ItemDetails = () => {
     let link = window.location.href;
     let linkArr = link.split('/');
     let linkID = linkArr.pop() || linkArr.pop();
+    console.log(localStorage.getItem(linkID))
 
-    localStorage.setItem('id', linkID)  
-
-    let item = itemData.find((e) => e.id == localStorage.getItem('id'))
-    
-    localStorage.setItem('item', JSON.stringify(item))
-    console.log(localStorage.getItem('id'))
-    console.log(item)
-    console.log(localStorage.getItem('item'))
-    let items = JSON.parse(localStorage.getItem('item'))
-    console.log(items)
+    let item = itemData.find((e) => e.id == localStorage.getItem(linkID))
 
     const handleSubmit = (e) => {
         e.preventDefault();

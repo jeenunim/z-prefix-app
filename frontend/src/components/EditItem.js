@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { ParentContext } from '../App'
 
 const EditItem = () => {
-    const { itemData } = useContext(ParentContext)
+    const { itemData, userData } = useContext(ParentContext)
     const [user_table_id, setUser_table_id] = useState((itemData.user_table_id));
     const [Item_Name, setItem_Name] = useState(itemData.Item_Name);
     const [Description, setDescription] = useState(itemData.Description);
@@ -14,6 +14,8 @@ const EditItem = () => {
     let found = itemData.find((e) => e.id == linkID);
     var id = found.id
     console.log(found)
+    let user = userData.find((e) => e.Username == localStorage.getItem('username'))
+    console.log(user)
 
     const handleSubmit = (e) => {
         // Simple POST request with a JSON body using fetch
@@ -29,6 +31,7 @@ const EditItem = () => {
                 )
         };
         fetch(`http://localhost:3001/items/${id}`, requestOptions)
+        .then(() => {setUser_table_id(user.id)})
         .then(() => {alert('Your edits have been saved!'); setTimeout(window.location.href = `/itemDetails/${id}`, 3000)})
     }
 
@@ -36,12 +39,6 @@ const EditItem = () => {
         <div className='editItemContainer'>
             <div>
                 <form onSubmit={handleSubmit}>
-                    <label className="labelHeaders">User ID:
-                        <input name="user"
-                        type='text'
-                        value={user_table_id} 
-                        onChange={(e) =>{if(e.target.value !== null) setUser_table_id(e.target.value)}}/>
-                    </label><br/><br/>
                     <label className="labelHeaders">Item Name:
                         <input name="item"
                         type='text'

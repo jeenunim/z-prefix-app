@@ -18,6 +18,7 @@ const Home = () => {
                             <div className="card" key={`${e.id}`}>
                                 <p className="cardTitle">{`${e.Item_Name}`}</p>
                             </div>
+                            {localStorage.setItem(`${e.id}`, e.id)}
                         </Link>
                     )
                 })}
