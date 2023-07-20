@@ -1,9 +1,9 @@
 # z-prefix-app
 
 ### FIRST STEPS
-1. type in "docker-compose up" in the terminal to get our container up and running for our database.
+1. Be sure to have the docker desktop app open/running first, then type in "docker-compose up" in the terminal to get our container up and running for our database.
 
-2. Open another terminal instance and type in "docker exec -it "container" bash" to access our container. DO NOT close the previous terminal, all the terminals we create we will keep open.
+2. Open another terminal instance and type in "docker exec -it "container_number" bash" to access our container. You should be able to get the container_number from the docker desktop app. DO NOT close the previous terminal, all the terminals we create we will keep open.
 
 3. From the integrated terminal type in "psql -U password" so that we can work inside of it as a user and add data tables.
 
