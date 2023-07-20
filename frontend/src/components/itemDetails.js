@@ -8,12 +8,6 @@ const ItemDetails = () => {
     let edit = null;
     let remove = null;
 
-    // let link = window.location.href;
-    // let linkArr = link.split('/');
-    // let linkID = linkArr.pop() || linkArr.pop();
-    // console.log(localStorage.getItem(linkID))
-
-    // let item = itemData.find((e) => e.id == localStorage.getItem(linkID))
     useEffect(() => {
         let link = window.location.href;
         let linkArr = link.split('/');

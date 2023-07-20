@@ -28,6 +28,7 @@ const Register = () => {
 
     return (
         <main>
+            <div className='login-card'>
             <form onSubmit={handleSubmit}>
                     <label className="labelHeaders">First Name:
                         <input name="firstName"
@@ -52,8 +53,9 @@ const Register = () => {
                     </label><br/><br/>
                     <button className='submitButton'>Submit</button>
                 </form>
-            <div>
+            <div className='link-container'>
                 <Link to={'/login'}>Already have an account? Log in here.</Link>
+            </div>
             </div>
         </main>
     )

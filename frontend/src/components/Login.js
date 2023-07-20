@@ -20,20 +20,22 @@ const Login = () => {
 
     return (
         <main>
-            <form onSubmit={handleSubmit}>
-                <label for='text'>Username: </label>
-                <input
-                name="username"
-                type='text'
-                required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                >
-                </input>
-                <button>Log In</button>
-            </form>
-            <div>
-                <Link to={'/register'}>Register for an Account!</Link>
+            <div className='login-card'>
+                <form onSubmit={handleSubmit}>
+                    <label for='text'>Username: </label>
+                    <input
+                    name="username"
+                    type='text'
+                    required
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    >
+                    </input>
+                    <button>Log In</button>
+                </form>
+                <div className='link-container'>
+                    <Link to={'/register'}>Register for an Account!</Link>
+                </div>
             </div>
         </main>
     )
