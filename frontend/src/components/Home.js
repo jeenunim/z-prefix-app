@@ -11,8 +11,9 @@ const Home = () => {
             <section>
                 <h1>Items</h1>
             </section>
-            <div className="card-container">
-                {itemData.map((e) => {
+            <div >
+                <div className="card-container">
+                    {itemData.map((e) => {
                     return (
                         <Link to={`/itemDetails/${e.id}`}>
                             <div className="card" key={`${e.id}`}> 
@@ -22,8 +23,9 @@ const Home = () => {
                                 {localStorage.setItem(`${e.id}`, e.id)}
                             </div>
                         </Link>
-                    )
-                })}
+                        )
+                    })}
+                </div>
             </div>
         </main>
     )

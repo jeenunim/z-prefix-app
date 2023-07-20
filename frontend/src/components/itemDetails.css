@@ -1,0 +1,14 @@
+.container {
+    display: flex row;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 15rem;
+    height: 7rem;
+    margin: 0.5em;
+    margin-bottom: 2em;
+    padding: 1rem;
+    background-color: #ffcbcb;
+    box-shadow: 0px 0px 6px 1px rgba(211, 211, 211);
+    transition: transform 0.3s;
+    border-radius: 10px;
+}
