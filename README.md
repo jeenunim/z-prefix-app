@@ -9,7 +9,7 @@
 
 4. From here we will create our database by typing "CREATE DATABASE inventory". it has to be "inventory" because that is what our docker-compose.yaml file will connect to.
 
-5. Next we will connect to our data base by using the command "\c "database"".
+5. Next we will connect to our data base by using the command "\c inventory".
 
 ### MIGRATIONS and SEEDs
 6. Our next step is to then populate the data table with our seed data. Follow the next sequence of steps to populate our empty database with useful tables.
