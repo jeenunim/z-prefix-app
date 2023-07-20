@@ -8,7 +8,6 @@ import AddItem from './components/AddItem'
 import EditItem from './components/EditItem'
 import Login from './components/Login';
 import Register from './components/Register';
-import Logout from './components/logout';
 
 export const ParentContext = createContext();
 
@@ -39,7 +38,6 @@ function App() {
           <Route path='/itemDetails/:id' element={<ItemDetails />} />
           <Route path='/addItem' element={<AddItem />} />
           <Route path='/editItem/:id' element={<EditItem />} />
-          <Route path='/logout' element={<Logout />} />
         </Routes>
       </Router>
     </ParentContext.Provider>

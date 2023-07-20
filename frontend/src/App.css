@@ -64,11 +64,9 @@ li {
 
 .container {
   position: relative;
+  word-wrap: break-word;
   left: 40%;
   top: 40%;
-  display: flex row;
-  flex-flow: row wrap;
-  justify-content: space-between;
   width: 20rem;
   height: 10rem;
   margin: 0.5em;
@@ -86,6 +84,9 @@ li {
 }
 
 .login-card {
+  position: relative;
+  left: 40%;
+  top: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -104,7 +105,7 @@ li {
   width: 16rem;
   height: 2rem;
   margin: 0.5em;
-  margin-bottom: 2em;
+  margin-bottom: .5em;
   padding: 1rem;
   background-color: #fafafa;
   box-shadow: 0px 0px 6px 1px rgba(211, 211, 211);

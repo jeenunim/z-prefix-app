@@ -13,9 +13,17 @@ const Header = () => {
   let username = localStorage.getItem('username')
   let login = <Link to="/login">Login</Link>
 
+  const confirmLogout = () => {
+    const result = window.confirm('Are you sure you want to log out?');
+    if (result) {
+      localStorage.removeItem('username');
+      window.location.href = '/';
+  }
+  }
+
   if (user.includes(username)) {
     addItem = <Link to="/addItem">Add Item</Link>
-    logout = <Link to={'/logout'}><button>Log out</button></Link>
+    logout = <button onClick={confirmLogout}>Log out</button>
     userInfo = <div>Logged in as: {username}</div>
     login = null;
   }

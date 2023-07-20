@@ -10,12 +10,13 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(user.includes(username)) {
-        alert(`Logged in successfully, welcome ${username}`)
+            alert(`Logged in successfully, welcome ${username}`)
+            localStorage.setItem('username', username)
+            window.location.href = '/'
         } else {
             alert('This username does not exist. Please try again.')
         }
-        localStorage.setItem('username', username)
-        window.location.href = '/'
+        
     }
 
     return (
