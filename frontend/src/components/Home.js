@@ -11,14 +11,16 @@ const Home = () => {
             <section>
                 <h1>Items</h1>
             </section>
-            <div>
+            <div className="card-container">
                 {itemData.map((e) => {
                     return (
-                        <Link to={`/itemDetails/${e.id}`}> 
-                            <div className="card" key={`${e.id}`}>
+                        <Link to={`/itemDetails/${e.id}`}>
+                            <div className="card" key={`${e.id}`}> 
                                 <p className="cardTitle">{`${e.Item_Name}`}</p>
+                                <p className="cardDetails">{`${e.Description}`}</p>
+                                <p className="cardDetails">{`${e.Quantity}`}</p>
+                                {localStorage.setItem(`${e.id}`, e.id)}
                             </div>
-                            {localStorage.setItem(`${e.id}`, e.id)}
                         </Link>
                     )
                 })}

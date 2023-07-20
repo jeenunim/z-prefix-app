@@ -1,5 +1,60 @@
 body {
-  background-color: #ffcbcb;
+  background-color: #66bfbf;
   background-image: linear-gradient(to bottom, #0009, transparent);
   min-height: 100vh;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 15rem;
+  height: 7rem;
+}
+
+.card {
+  display: flex row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 15rem;
+  height: 7rem;
+  margin: 0.5em;
+  margin-bottom: 2em;
+  padding: 1rem;
+  background-color: #ffcbcb;
+  box-shadow: 0px 0px 6px 1px rgba(211, 211, 211);
+  transition: transform 0.3s;
+  border-radius: 10px;
+}
+
+.cardTitle {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 0px;
+  color: black;
+  font-weight: bold;
+  background-size: contain;
+  background-blend-mode: darken;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cardDetails {
+  color: black;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+li {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 0px;
+  color: black;
+  font-weight: bold;
+  background-size: contain;
+  background-blend-mode: darken;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
